@@ -1,0 +1,10 @@
+import requests
+import json
+
+cx = '006414095369450443889:m2aush7jofk'
+apiKey ='AIzaSyARsKK3LXPXXv7a5C_LWkZhTtMgLeXz6Mc'
+api = 'https://www.googleapis.com/customsearch/v1'
+search = '小幸運'
+url = f'{api}?key={apiKey}&cx={cx}&q={search}'
+res = requests.get(url)
+result = json.loads(res.text)
