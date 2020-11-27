@@ -1,0 +1,28 @@
+from selenium import webdriver as wd
+from selenium.webdriver.chrome.options import Options
+import time
+from bs4 import BeautifulSoup
+
+options = Options()
+
+#略過通知
+options.add_argument("--disable-notifications")
+
+driver = wd.Chrome(chrome_options=options)
+driver.get('https://www.facebook.com/')
+driver.find_element_by_id("email").send_keys('h770320@gmail.com')
+driver.find_element_by_id("pass").send_keys('N9%iEM14YkT5')
+driver.find_element_by_id("pass").submit()
+#driver.find_element_by_id("u_0_b").click()
+time.sleep(3)#等待3秒鐘
+#粉絲專業
+driver.get('https://www.facebook.com/ashin555')
+for repeted_aciotn in range(6):
+    #執行 script 滾動卷軸
+    driver.execute_script('window.scrollTo(0,document.body.scrollHeight)')
+    time.sleep(3)#等待3秒鐘
+    soup = BeautifulSoup(driver.page_source,'lxml')
+    all_titles = soup.find_all('div',{'class':'kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x c1et5uql ii04i59q'})
+
+for article in all_titles:
+    print(article.text)
