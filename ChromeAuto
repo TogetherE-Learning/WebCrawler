@@ -1,7 +1,15 @@
 from selenium import webdriver as wd
 driver = wd.Chrome()
-driver.get('https://www.google.com')
+#driver.get('https://www.google.com')
 #driver.find_element_by_name('q').send_keys('筆記型電腦')
 #driver.find_element_by_name('btnK').submit()
 #driver.find_element_by_link_text('Gmail').click()
-driver.find_element_by_partial_link_text('mail').click()
+#driver.find_element_by_partial_link_text('mail').click()
+
+driver.get('https://www.baidu.com')
+
+links = driver.find_elements_by_tag_name("a")
+
+for item in links:
+    if "新闻" in item.text:
+        item.click()
