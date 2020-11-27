@@ -11,6 +11,11 @@ links = driver.find_elements_by_tag_name("a")
 for item in links:
     if "新闻" in item.text:
         item.click()
-"""
+        
 driver.get('https://www.douban.com/')
 driver.find_element_by_class_name("lnk-movie").click()
+"""
+driver.get('https://www.facebook.com/')
+driver.find_element_by_id("email").send_keys('h770320@gmail.com')
+driver.find_element_by_id("pass").send_keys('12345678')
+driver.find_element_by_id("u_0_b").click()
