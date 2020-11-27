@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+
+#print(plt.style.available) 印出所有可用的 style
+#圖表底色調整
+plt.style.use("ggplot")
+data = range(0,10)
+degree1 = [30.1, 28.7, 26.0, 32, 29, 27.5, 28.3, 29.5, 30, 28]
+degree2 = [20.1, 22.7, 36.0, 25, 32, 25.5, 29.3, 19.5, 20, 25]
+#寬度高度大小調整
+plt.figure(figsize = (10, 5))
+#label 非必要 但有的畫右上角才會顯示名稱
+plt.plot(data,degree1 ,"o--r",label='Summer')
+plt.plot(data,degree2 ,"o--b",label='Winter')
+plt.xlabel("Day")
+plt.ylabel("Degree")
+#設定X軸Y軸最大最小值
+xmin,xmax,ymin,ymax = -1,10,18,37
+plt.axis([xmin,xmax,ymin,ymax])
+#刻度線
+plt.grid(True)
+#顯示右上角的說明
+plt.legend()
+#圖表標題
+plt.title('Degree in Day')
+#存成圖片
+plt.savefig('text.jpg')
+#jpg, png, svg, pdf ...
+plt.show()
