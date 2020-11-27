@@ -9,5 +9,6 @@
 7. Taoyuan.py
 
 python chrome webdriver download
+#要放到相同目錄
 
 %pip install selenium
