@@ -1,0 +1,32 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#讀取 csv 檔
+df = pd.read_csv('nba.csv')
+#對 Pos 欄位做 groupby
+group = df.groupby('Pos')
+#計算不同 Pos 的 Count
+total_count = group["Pos"].count()
+#從 0 開始 算所以 +1
+length = len(total) + 1
+arr = list(range(1,length))
+#使用長條圖呈現
+#plt.bar(arr,total_count)
+# x軸 名稱
+plt.xticks(arr,total_count.index)
+#x軸 Label
+plt.xlabel("Position")
+#y軸 Label
+plt.ylabel("Total of Player")
+#標題
+plt.title("Baketball Position")
+#-----新加入
+#勝利貢獻平均值 
+win = group["WS"].mean()
+#防守貢獻平均值
+dws = group["DWS"].mean()
+plt.bar(arr,win,label="win contribution")
+plt.bar(arr,dws,label="defensive contribution")
+#顯示 線條 Label
+plt.legend()
+plt.show()
