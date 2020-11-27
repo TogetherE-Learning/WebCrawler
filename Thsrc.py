@@ -19,3 +19,5 @@ clean = result['data']['DepartureTable']['TrainItem']
 print('車次','出發','抵達','耗時','自由座')
 for item in clean:
     print(item['TrainNumber'],item['DepartureTime'],item['DestinationTime'],item['Duration'],item['NonReservedCar'])
+
+    
