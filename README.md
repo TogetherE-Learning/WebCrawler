@@ -9,3 +9,5 @@
 7. Taoyuan.py
 
 python chrome webdriver download
+
+%pip install selenium
