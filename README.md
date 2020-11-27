@@ -7,7 +7,7 @@
 5. GoogleSearchApi
 6. Thsrc.py
 7. Taoyuan.py
-
+8. ChromeAuto.py
 python chrome webdriver download
 #要放到相同目錄
 
