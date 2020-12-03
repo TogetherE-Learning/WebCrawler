@@ -1,10 +1,19 @@
+import jieba 
 import requests
 import json
+from bs4 import BeautifulSoup
 
+search = '中租'
+search = f'{search} site:https://m.iyp.com.tw/'
 cx = '006414095369450443889:m2aush7jofk'
 apiKey ='AIzaSyARsKK3LXPXXv7a5C_LWkZhTtMgLeXz6Mc'
 api = 'https://www.googleapis.com/customsearch/v1'
-search = '小幸運'
 url = f'{api}?key={apiKey}&cx={cx}&q={search}'
 res = requests.get(url)
 result = json.loads(res.text)
+link = result['items'][0]['link']
+res = requests.get(link)
+res.encoding = 'utf-8'
+soup = BeautifulSoup(res.text,"html.parser")
+location = soup.find("li", {"class":"location"})
+print(location) 
